@@ -122,16 +122,18 @@ namespace IdentityServerWithAspNetIdentitySqlite
             });
 
             services.AddTransient<IClientStore, ClientStore>();
+            services.AddTransient<IResourceStore, ResourceStore>();
 
             services.AddIdentityServer()
                 .AddSigningCredential(cert)
                 .AddResourceStore<ResourceStore>()
-                //.AddInMemoryIdentityResources(Config.GetIdentityResources())
-                //.AddInMemoryApiResources(Config.GetApiResources())
                 .AddClientStore<ClientStore>()
-                //.AddInMemoryClients(Config.GetClients())
                 .AddAspNetIdentity<ApplicationUser>()
                 .AddProfileService<IdentityWithAdditionalClaimsProfileService>();
+
+            //.AddInMemoryIdentityResources(Config.GetIdentityResources())
+            //.AddInMemoryApiResources(Config.GetApiResources())
+            //.AddInMemoryClients(Config.GetClients())
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

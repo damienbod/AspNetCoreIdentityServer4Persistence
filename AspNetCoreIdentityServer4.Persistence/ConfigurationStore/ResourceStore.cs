@@ -30,37 +30,62 @@ namespace AspNetCoreIdentityServer4Persistence.ConfigurationStore
         {
             if (scopeNames == null) throw new ArgumentNullException(nameof(scopeNames));
 
-            var apiResources = (from item in _context.ApiResources
-                                     select item.ApiResource).ToList();
 
-            var apis = from i in apiResources
-                             where scopeNames.Contains(i.Name)
-                             select i;
+            var apiResources = new List<ApiResource>();
+            var apiResourcesEntities = from i in _context.ApiResources
+                                            where scopeNames.Contains(i.ApiResourceName)
+                                            select i;
 
-            return Task.FromResult(apis);
+            foreach (var apiResourceEntity in apiResourcesEntities)
+            {
+                apiResourceEntity.MapDataFromEntity();
+
+                apiResources.Add(apiResourceEntity.ApiResource);
+            }
+
+            return Task.FromResult(apiResources.AsEnumerable());
         }
 
         public Task<IEnumerable<IdentityResource>> FindIdentityResourcesByScopeAsync(IEnumerable<string> scopeNames)
         {
             if (scopeNames == null) throw new ArgumentNullException(nameof(scopeNames));
 
-            var identityResources = (from item in _context.IdentityResources
-                                     select item.IdentityResource).ToList();
-
-            var identities = from i in identityResources
-                             where scopeNames.Contains(i.Name)
+            var identityResources = new List<IdentityResource>();
+            var identityResourcesEntities = from i in _context.IdentityResources
+                             where scopeNames.Contains(i.IdentityResourceName)
                            select i;
 
-            return Task.FromResult(identities);
+            foreach (var identityResourceEntity in identityResourcesEntities)
+            {
+                identityResourceEntity.MapDataFromEntity();
+
+                identityResources.Add(identityResourceEntity.IdentityResource);
+            }
+
+            return Task.FromResult(identityResources.AsEnumerable());
         }
 
         public Task<Resources> GetAllResourcesAsync()
         {
-            var apiResources = (from item in _context.ApiResources
-                             select item.ApiResource).ToList();
+            var apiResourcesEntities = _context.ApiResources.ToList();
+            var identityResourcesEntities = _context.IdentityResources.ToList();
 
-            var identityResources = (from item in _context.IdentityResources
-                                select item.IdentityResource).ToList();
+            var apiResources = new List<ApiResource>();
+            var identityResources= new List<IdentityResource>();
+
+            foreach (var apiResourceEntity in apiResourcesEntities)
+            {
+                apiResourceEntity.MapDataFromEntity();
+
+                apiResources.Add(apiResourceEntity.ApiResource);
+            }
+
+            foreach (var identityResourceEntity in identityResourcesEntities)
+            {
+                identityResourceEntity.MapDataFromEntity();
+
+                identityResources.Add(identityResourceEntity.IdentityResource);
+            }
 
             var result = new Resources(identityResources, apiResources);
             return Task.FromResult(result);

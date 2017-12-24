@@ -18,6 +18,18 @@ namespace AspNetCoreIdentityServer4.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
+            modelBuilder.Entity("AspNetCoreIdentityServer4Persistence.ConfigurationStore.ApiResourceEntity", b =>
+                {
+                    b.Property<string>("ApiResourceName")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ApiResourceData");
+
+                    b.HasKey("ApiResourceName");
+
+                    b.ToTable("ApiResources");
+                });
+
             modelBuilder.Entity("AspNetCoreIdentityServer4Persistence.ConfigurationStore.ClientEntity", b =>
                 {
                     b.Property<string>("ClientId")
@@ -28,6 +40,18 @@ namespace AspNetCoreIdentityServer4.Migrations
                     b.HasKey("ClientId");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("AspNetCoreIdentityServer4Persistence.ConfigurationStore.IdentityResourceEntity", b =>
+                {
+                    b.Property<string>("IdentityResourceName")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("IdentityResourceData");
+
+                    b.HasKey("IdentityResourceName");
+
+                    b.ToTable("IdentityResources");
                 });
 #pragma warning restore 612, 618
         }
