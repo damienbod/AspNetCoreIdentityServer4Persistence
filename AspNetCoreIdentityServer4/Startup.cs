@@ -20,9 +20,8 @@ using System.Reflection;
 using IdentityServerWithAspNetIdentity.Resources;
 using System.Linq;
 using IdentityServerWithIdentitySQLite;
-using IdentityServerWithAspNetIdentity.Filters;
-using AspNetCoreIdentityServer4Persistence.ConfigurationStore;
 using IdentityServer4.Stores;
+using AspNetCoreIdentityServer4Persistence.ConfigurationStore;
 
 namespace IdentityServerWithAspNetIdentitySqlite
 {
@@ -53,7 +52,10 @@ namespace IdentityServerWithAspNetIdentitySqlite
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDbContext<ConfigurationStoreContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("ConfigurationStoreConnection"))
+                options.UseSqlite(
+                    Configuration.GetConnectionString("ConfigurationStoreConnection"),
+                    b => b.MigrationsAssembly("AspNetCoreIdentityServer4")
+                )
             );
 
             services.AddSingleton<LocService>();

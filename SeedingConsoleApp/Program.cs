@@ -1,8 +1,10 @@
 ﻿using AspNetCoreIdentityServer4Persistence.ConfigurationStore;
 using IdentityServer4.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace ConsoleApp1
 {
@@ -57,7 +59,14 @@ namespace ConsoleApp1
 
             try
             {
-                var configurationStoreConnection = "Data Source=C:\\git\\AspNetCoreIdentityServer4Persistence\\AspNetCoreIdentityServer4Persistence\\ConfigurationStore\\identityserver4configuration.sqlite";
+                var currentDirectory = Directory.GetCurrentDirectory();
+
+                var configuration = new ConfigurationBuilder()
+                    .AddJsonFile($"{currentDirectory}\\..\\AspNetCoreIdentityServer4\\appsettings.json")
+                    .Build();
+
+                var configurationStoreConnection = configuration.GetConnectionString("ConfigurationStoreConnection");
+
                 var optionsBuilder = new DbContextOptionsBuilder<ConfigurationStoreContext>();
                 optionsBuilder.UseSqlite(configurationStoreConnection);
 

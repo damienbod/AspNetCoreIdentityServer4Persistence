@@ -7,12 +7,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
 
-namespace AspNetCoreIdentityServer4Persistence.Migrations
+namespace AspNetCoreIdentityServer4.Migrations
 {
     [DbContext(typeof(ConfigurationStoreContext))]
-    partial class ConfigurationStoreContextModelSnapshot : ModelSnapshot
+    [Migration("20171224104237_id4configMigration")]
+    partial class id4configMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

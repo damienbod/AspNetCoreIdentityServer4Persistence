@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityServer4Persistence", "AspNetCoreIdentityServer4Persistence\AspNetCoreIdentityServer4Persistence.csproj", "{2C40287A-BD3C-4D8C-84D9-33AE54973C61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityServer4", "AspNetCoreIdentityServer4\AspNetCoreIdentityServer4.csproj", "{2C40287A-BD3C-4D8C-84D9-33AE54973C61}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedingConsoleApp", "SeedingConsoleApp\SeedingConsoleApp.csproj", "{F3664F73-ED71-4602-861D-423EE430DEBF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularClientIdTokenOnly", "AngularClientIdTokenOnly\AngularClientIdTokenOnly.csproj", "{BB325C98-98EF-4778-B394-EED8A8BE3515}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreIdentityServer4.Persistence", "AspNetCoreIdentityServer4.Persistence\AspNetCoreIdentityServer4.Persistence.csproj", "{B2F33762-018C-4E6A-A7A1-7DB88A49B132}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{BB325C98-98EF-4778-B394-EED8A8BE3515}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB325C98-98EF-4778-B394-EED8A8BE3515}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB325C98-98EF-4778-B394-EED8A8BE3515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F33762-018C-4E6A-A7A1-7DB88A49B132}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F33762-018C-4E6A-A7A1-7DB88A49B132}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F33762-018C-4E6A-A7A1-7DB88A49B132}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F33762-018C-4E6A-A7A1-7DB88A49B132}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

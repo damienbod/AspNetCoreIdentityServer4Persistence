@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AspNetCoreIdentityServer4Persistence\AspNetCoreIdentityServer4Persistence.csproj" />
+    <ProjectReference Include="..\AspNetCoreIdentityServer4.Persistence\AspNetCoreIdentityServer4.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace AspNetCoreIdentityServer4Persistence.Migrations
+namespace AspNetCoreIdentityServer4.Migrations
 {
     public partial class id4configMigration : Migration
     {

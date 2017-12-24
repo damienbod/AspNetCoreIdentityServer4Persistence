@@ -20,9 +20,11 @@ namespace AspNetCoreIdentityServer4Persistence.ConfigurationStore
                 .AddJsonFile($"{currentDirectory}\\appsettings.{deploymentType}.json", optional: true)
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("ConfigurationStoreConnection");
+            var configurationStoreConnection = configuration.GetConnectionString("ConfigurationStoreConnection");
             var optionsBuilder = new DbContextOptionsBuilder<ConfigurationStoreContext>();
-            optionsBuilder.UseSqlite(connectionString);
+            optionsBuilder.UseSqlite(
+                configurationStoreConnection,
+                    b => b.MigrationsAssembly("AspNetCoreIdentityServer4"));
 
             return new ConfigurationStoreContext(optionsBuilder.Options);
         }
