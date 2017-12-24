@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace AspNetCoreIdentityServer4Persistence.ConfigurationStore
 {
-    public class ClientEntity
+    public class ApiResourceEntity
     {
-        public string ClientData { get; set; }
+        public string ApiResourceData { get; set; }
 
         [Key]
-        public string ClientId { get; set; }
+        public string ApiResourceName { get; set; }
 
         [NotMapped]
-        public Client Client { get; set; }
+        public ApiResource ApiResource { get; set; }
 
         public void AddDataToEntity()
         {
-            ClientData = JsonConvert.SerializeObject(Client);
-            ClientId = Client.ClientId;
+            ApiResourceData = JsonConvert.SerializeObject(ApiResource);
+            ApiResourceName = ApiResource.Name;
         }
 
         public void MapDataFromEntity()
         {
-            Client = JsonConvert.DeserializeObject<Client>(ClientData);
-            ClientId = Client.ClientId;
+            ApiResource = JsonConvert.DeserializeObject<ApiResource>(ApiResourceData);
+            ApiResourceName = ApiResource.Name;
         }
     }
 }

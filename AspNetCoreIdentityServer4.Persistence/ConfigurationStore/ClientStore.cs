@@ -21,10 +21,8 @@ namespace AspNetCoreIdentityServer4Persistence.ConfigurationStore
         public Task<Client> FindClientByIdAsync(string clientId)
         {
             var client = _context.Clients.First(t => t.ClientId == clientId);
-            client.MapClientDataFromEntity();
-            var tcs = new TaskCompletionSource<Client>();
-            tcs.SetResult(client.Client);
-            return tcs.Task;
+            client.MapDataFromEntity();
+            return Task.FromResult(client.Client);
         }
     }
 }

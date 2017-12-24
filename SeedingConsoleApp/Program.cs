@@ -6,57 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace ConsoleApp1
+namespace SeedingConsoleApp
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Adding a clint to the DB");
-
-            ClientEntity clientEntity = new ClientEntity();
-            clientEntity.Client = new Client
-            {
-                ClientName = "angularclientidtokenonly",
-                ClientId = "angularclientidtokenonly",
-                AccessTokenType = AccessTokenType.Reference,
-                AccessTokenLifetime = 360,// 120 seconds, default 60 minutes
-                IdentityTokenLifetime = 300,
-                AllowedGrantTypes = GrantTypes.Implicit,
-                AlwaysIncludeUserClaimsInIdToken = true,
-                AllowAccessTokensViaBrowser = true,
-                RedirectUris = new List<string>
-                    {
-                        "https://localhost:44372"
-
-                    },
-                PostLogoutRedirectUris = new List<string>
-                    {
-                        "https://localhost:44372/Unauthorized"
-                    },
-                AllowedCorsOrigins = new List<string>
-                    {
-                        "https://localhost:44372",
-                        "http://localhost:44372"
-                    },
-                AllowedScopes = new List<string>
-                    {
-                        "openid",
-                        "dataEventRecords",
-                        "dataeventrecordsscope",
-                        "securedFiles",
-                        "securedfilesscope",
-                        "role",
-                        "profile",
-                        "email"
-                    }
-            };
-            clientEntity.AddClientDataToEntity();
-            clientEntity.MapClientDataFromEntity();
-
-            Console.WriteLine(clientEntity.ClientData);
-            Console.WriteLine(clientEntity.Client.ClientName);
-
             try
             {
                 var currentDirectory = Directory.GetCurrentDirectory();
@@ -72,7 +27,9 @@ namespace ConsoleApp1
 
                 using (var configurationStoreContext = new ConfigurationStoreContext(optionsBuilder.Options))
                 {
-                    configurationStoreContext.Add(clientEntity);
+                    configurationStoreContext.AddRange(Config.GetClients());
+                    configurationStoreContext.AddRange(Config.GetIdentityResources());
+                    configurationStoreContext.AddRange(Config.GetApiResources());
                     configurationStoreContext.SaveChanges();
                 }
             }
