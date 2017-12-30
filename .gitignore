@@ -1,0 +1,6 @@
+/AngularClientIdTokenOnly/node_modules
+/AngularClientIdTokenOnly/angularApp/**/*.js
+/AngularClientIdTokenOnly/angularApp/**/*.js.map
+/.vs/config/applicationhost.config
+/.vs
+/**/bin
