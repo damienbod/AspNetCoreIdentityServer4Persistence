@@ -4,3 +4,8 @@
 /.vs/config/applicationhost.config
 /.vs
 /**/bin
+/ClientTwo/node_modules
+/ClientTwo/angularApp/**/*.js.map
+/ClientTwo/angularApp/**/*.js
+/ClientTwo/wwwroot/
+/AngularClientIdTokenOnly/wwwroot/
