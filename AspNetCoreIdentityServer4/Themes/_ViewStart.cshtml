@@ -4,5 +4,5 @@
 @inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
 @inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
 @{
-    Layout = $"_Layout_{_clientSelector.SelectedClient}";
+    Layout = $"_Layout{_clientSelector.SelectedClient}";
 }

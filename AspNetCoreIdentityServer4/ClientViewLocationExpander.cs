@@ -41,15 +41,6 @@ public class ClientViewLocationExpander : IViewLocationExpander
             }
             .Concat(viewLocations);
         }
-        else
-        {
-            viewLocations = new[] {
-                $"/Themes/Default/{{1}}/{{0}}.cshtml",
-                $"/Themes/Default/Shared/{{0}}.cshtml",
-            }
-           .Concat(viewLocations);
-        }
-
 
         return viewLocations;
     }
