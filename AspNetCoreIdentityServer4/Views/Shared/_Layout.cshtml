@@ -1,6 +1,7 @@
 ﻿@using System.Globalization
 @using IdentityServerWithAspNetIdentity.Resources
 @inject LocService SharedLocalizer
+@inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +9,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ID4</title>
-
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -37,6 +37,8 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("home")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("about")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Layout:  @_clientSelector.SelectedClient</a></li>
+                    
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -49,7 +51,6 @@
             <p>&copy; 2017 - ID4</p>
         </footer>
     </div>
-
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -66,7 +67,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -19,9 +19,11 @@ using IdentityServer4;
 using IdentityServer4.Extensions;
 using System.Globalization;
 using IdentityServerWithAspNetIdentity.Filters;
+using IdentityServerWithIdentitySQLite;
 
 namespace IdentityServerWithAspNetIdentity.Controllers
 {
+    [ServiceFilter(typeof(ClientIdFilter))]
     [Authorize]
     public class AccountController : Controller
     {

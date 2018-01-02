@@ -36,6 +36,7 @@ namespace IdentityServerWithIdentitySQLite
                     Uri uri = new Uri("http://faketopreventexception" + request);
                     var query1 = QueryHelpers.ParseQuery(uri.Query);
                     var requestCulture = query1.FirstOrDefault(t => t.Key == "ui_locales").Value;
+                    var client_id = query1.FirstOrDefault(t => t.Key == "client_id").Value;
 
                     var cultureFromReturnUrl = requestCulture.ToString();
                     if(string.IsNullOrEmpty(cultureFromReturnUrl))

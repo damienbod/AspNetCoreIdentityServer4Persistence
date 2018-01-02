@@ -60,7 +60,8 @@ namespace IdentityServerWithAspNetIdentitySqlite
 
             services.AddSingleton<LocService>();
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-
+            services.AddScoped<ClientIdFilter>();
+            services.AddScoped<ClientSelector>();
             services.AddAuthentication();
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
