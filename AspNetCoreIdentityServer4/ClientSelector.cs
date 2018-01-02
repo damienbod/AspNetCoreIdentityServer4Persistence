@@ -2,6 +2,6 @@
 {
     public class ClientSelector
     {
-        public string SelectedClient = "none";
+        public string SelectedClient = "";
     }
 }

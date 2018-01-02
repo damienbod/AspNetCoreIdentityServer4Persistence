@@ -55,13 +55,13 @@ export class AppModule {
         // identified by the iss (issuer) Claim as an audience.
         // The ID Token MUST be rejected if the ID Token does not list the Client as a valid audience,
         // or if it contains additional audiences not trusted by the Client.
-        openIDImplicitFlowConfiguration.client_id = 'angularclient';
+        openIDImplicitFlowConfiguration.client_id = 'ClientTwo';
         openIDImplicitFlowConfiguration.response_type = 'id_token token';
         openIDImplicitFlowConfiguration.scope = 'dataEventRecords openid profile email';
         openIDImplicitFlowConfiguration.post_logout_redirect_uri = 'https://localhost:44395/unauthorized';
         openIDImplicitFlowConfiguration.start_checksession = false;
         openIDImplicitFlowConfiguration.silent_renew = false;
-        openIDImplicitFlowConfiguration.post_login_route = '/dm';
+        openIDImplicitFlowConfiguration.post_login_route = '/home';
         // HTTP 403
         openIDImplicitFlowConfiguration.forbidden_route = '/unauthorized';
         // HTTP 401

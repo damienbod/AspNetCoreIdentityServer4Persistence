@@ -133,14 +133,14 @@ namespace IdentityServerWithAspNetIdentitySqlite
 
             services.AddIdentityServer()
                 .AddSigningCredential(cert)
-                .AddResourceStore<ResourceStore>()
-                .AddClientStore<ClientStore>()
+                //.AddResourceStore<ResourceStore>()
+                //.AddClientStore<ClientStore>()
                 .AddAspNetIdentity<ApplicationUser>()
-                .AddProfileService<IdentityWithAdditionalClaimsProfileService>();
+                .AddProfileService<IdentityWithAdditionalClaimsProfileService>()
 
-            //.AddInMemoryIdentityResources(Config.GetIdentityResources())
-            //.AddInMemoryApiResources(Config.GetApiResources())
-            //.AddInMemoryClients(Config.GetClients())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources())
+                .AddInMemoryApiResources(Config.GetApiResources())
+                .AddInMemoryClients(Config.GetClients());
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

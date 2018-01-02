@@ -1,3 +1,8 @@
-﻿@{
-    Layout = "_Layout";
+﻿@using System.Globalization
+@using IdentityServerWithAspNetIdentity.Resources
+@inject LocService SharedLocalizer
+@inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
+@inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
+@{
+    Layout = $"_Layout_{_clientSelector.SelectedClient}";
 }
