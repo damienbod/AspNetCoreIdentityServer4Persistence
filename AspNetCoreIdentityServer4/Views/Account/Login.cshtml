@@ -2,7 +2,6 @@
 @using IdentityServerWithAspNetIdentity.Resources
 @model IdentityServer4.Quickstart.UI.Models.LoginViewModel
 @inject SignInManager<ApplicationUser> SignInManager
-
 @inject LocService SharedLocalizer
 
 @inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
@@ -10,7 +9,7 @@
     ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("login");
 }
 Selected client:  @_clientSelector.SelectedClient
-<h2>@ViewData["Title"]</h2>
+<h2>@ViewData["Title"] DEFAULT LOGIN</h2>
 <div class="row">
     <div class="col-md-8">
         <section>
@@ -53,7 +52,6 @@ Selected client:  @_clientSelector.SelectedClient
         </section>
     </div>
 </div>
-
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
 }

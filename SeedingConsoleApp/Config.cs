@@ -111,75 +111,10 @@ namespace SeedingConsoleApp
             // client credentials client
             return new List<Client>
             {
-                new Client
+                                new Client
                 {
-                    ClientName = "angularjsclient",
-                    ClientId = "angularjsclient",
-                    AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowAccessTokensViaBrowser = true,
-                    RedirectUris = new List<string>
-                    {
-                        "https://localhost:44376/authorized"
-                    },
-                    PostLogoutRedirectUris = new List<string>
-                    {
-                        "https://localhost:44346/unauthorized.html"
-                    },
-                    AllowedCorsOrigins = new List<string>
-                    {
-                        "https://localhost:44346"
-                    },
-                    AllowedScopes = new List<string>
-                    {
-                        "openid",
-                        "email",
-                        "profile",
-                        "dataEventRecords",
-                        "dataeventrecordsscope",
-                        "securedFiles",
-                        "securedfilesscope",
-                    }
-                },
-                new Client
-                {
-                    ClientName = "angularclient",
-                    ClientId = "angularclient",
-                    AccessTokenType = AccessTokenType.Reference,
-                    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
-                    IdentityTokenLifetime = 300,
-                    AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowAccessTokensViaBrowser = true,
-                    RedirectUris = new List<string>
-                    {
-                        "https://localhost:44311"
-
-                    },
-                    PostLogoutRedirectUris = new List<string>
-                    {
-                        "https://localhost:44311/unauthorized",
-                        "https://localhost:44311"
-                    },
-                    AllowedCorsOrigins = new List<string>
-                    {
-                        "https://localhost:44311",
-                        "http://localhost:44311"
-                    },
-                    AllowedScopes = new List<string>
-                    {
-                        "openid",
-                        "dataEventRecords",
-                        "dataeventrecordsscope",
-                        "securedFiles",
-                        "securedfilesscope",
-                        "role",
-                        "profile",
-                        "email"
-                    }
-                },
-                new Client
-                {
-                    ClientName = "angularclientidtokenonly",
-                    ClientId = "angularclientidtokenonly",
+                    ClientName = "ClientOne",
+                    ClientId = "ClientOne",
                     AccessTokenType = AccessTokenType.Reference,
                     AccessTokenLifetime = 360,// 120 seconds, default 60 minutes
                     IdentityTokenLifetime = 300,
@@ -211,7 +146,43 @@ namespace SeedingConsoleApp
                         "profile",
                         "email"
                     }
-}
+},
+                new Client
+                {
+                    ClientName = "ClientTwo",
+                    ClientId = "ClientTwo",
+                    AccessTokenType = AccessTokenType.Reference,
+                    AccessTokenLifetime = 330,// 330 seconds, default 60 minutes
+                    IdentityTokenLifetime = 300,
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser = true,
+                    RedirectUris = new List<string>
+                    {
+                        "https://localhost:44395"
+
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                        "https://localhost:44395/unauthorized",
+                        "https://localhost:44395"
+                    },
+                    AllowedCorsOrigins = new List<string>
+                    {
+                        "https://localhost:44395",
+                        "http://localhost:44395"
+                    },
+                    AllowedScopes = new List<string>
+                    {
+                        "openid",
+                        "dataEventRecords",
+                        "dataeventrecordsscope",
+                        "securedFiles",
+                        "securedfilesscope",
+                        "role",
+                        "profile",
+                        "email"
+                    }
+                }
             };
         }
     }

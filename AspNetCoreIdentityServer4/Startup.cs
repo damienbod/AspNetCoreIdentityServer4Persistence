@@ -22,6 +22,7 @@ using System.Linq;
 using IdentityServerWithIdentitySQLite;
 using IdentityServer4.Stores;
 using AspNetCoreIdentityServer4Persistence.ConfigurationStore;
+using Microsoft.AspNetCore.Mvc.Razor;
 
 namespace IdentityServerWithAspNetIdentitySqlite
 {
@@ -63,6 +64,11 @@ namespace IdentityServerWithAspNetIdentitySqlite
             services.AddScoped<ClientIdFilter>();
             services.AddScoped<ClientSelector>();
             services.AddAuthentication();
+
+            services.Configure<RazorViewEngineOptions>(options =>
+            {
+                options.ViewLocationExpanders.Add(new ClientViewLocationExpander());
+            });
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
             .AddEntityFrameworkStores<ApplicationDbContext>();

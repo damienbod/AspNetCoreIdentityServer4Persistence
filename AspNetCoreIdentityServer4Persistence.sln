@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityServer4",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedingConsoleApp", "SeedingConsoleApp\SeedingConsoleApp.csproj", "{F3664F73-ED71-4602-861D-423EE430DEBF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngularClientIdTokenOnly", "AngularClientIdTokenOnly\AngularClientIdTokenOnly.csproj", "{BB325C98-98EF-4778-B394-EED8A8BE3515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientOne", "ClientOne\ClientOne.csproj", "{BB325C98-98EF-4778-B394-EED8A8BE3515}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreIdentityServer4.Persistence", "AspNetCoreIdentityServer4.Persistence\AspNetCoreIdentityServer4.Persistence.csproj", "{B2F33762-018C-4E6A-A7A1-7DB88A49B132}"
 EndProject

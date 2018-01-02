@@ -1,6 +1,6 @@
-/AngularClientIdTokenOnly/node_modules
-/AngularClientIdTokenOnly/angularApp/**/*.js
-/AngularClientIdTokenOnly/angularApp/**/*.js.map
+/ClientOne/node_modules
+/ClientOne/angularApp/**/*.js
+/ClientOne/angularApp/**/*.js.map
 /.vs/config/applicationhost.config
 /.vs
 /**/bin
@@ -8,4 +8,4 @@
 /ClientTwo/angularApp/**/*.js.map
 /ClientTwo/angularApp/**/*.js
 /ClientTwo/wwwroot/
-/AngularClientIdTokenOnly/wwwroot/
+/ClientOne/wwwroot/
