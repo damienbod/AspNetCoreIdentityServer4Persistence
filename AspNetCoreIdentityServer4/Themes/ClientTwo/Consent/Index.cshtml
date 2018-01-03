@@ -1,6 +1,6 @@
 ﻿@model IdentityServer4.Quickstart.UI.Models.ConsentViewModel
 @inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
-Theme:  @_clientSelector.SelectedClient
+Theme: CONSENT @_clientSelector.SelectedClient
 
 <div class="page-consent">
     <div class="row page-header">
@@ -62,8 +62,8 @@ Theme:  @_clientSelector.SelectedClient
                     </div>
                 }
                 <div class="consent-buttons">
-                    <button name="button" value="yes" class="btn btn-primary" autofocus>Yes, Allow</button>
-                    <button name="button" value="no" class="btn">No, Do Not Allow</button>
+                    <button name="button" value="yes" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" autofocus>Yes, Allow</button>
+                    <button name="button" value="no" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">No, Do Not Allow</button>
                     @if (Model.ClientUrl != null)
                     {
                         <a class="pull-right btn btn-default" target="_blank" href="@Model.ClientUrl">
