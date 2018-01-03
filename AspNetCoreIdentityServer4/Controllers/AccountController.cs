@@ -34,6 +34,7 @@ namespace IdentityServerWithAspNetIdentity.Controllers
         private readonly ILogger _logger;
         private readonly IIdentityServerInteractionService _interaction;
         private readonly IClientStore _clientStore;
+        private readonly ClientSelector _clientSelector;
         private readonly IPersistedGrantService _persistedGrantService;
 
         public AccountController(
@@ -44,7 +45,8 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             ISmsSender smsSender,
             ILoggerFactory loggerFactory,
             IIdentityServerInteractionService interaction,
-            IClientStore clientStore)
+            IClientStore clientStore,
+            ClientSelector clientSelector)
         {
             _userManager = userManager;
             _persistedGrantService = persistedGrantService;
@@ -54,6 +56,7 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             _logger = loggerFactory.CreateLogger<AccountController>();
             _interaction = interaction;
             _clientStore = clientStore;
+            _clientSelector = clientSelector;
         }
 
         //
@@ -171,9 +174,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Logout(string logoutId)
         {
-            var item = CultureInfo.CurrentCulture;
-            var item2 = CultureInfo.CurrentUICulture;
-
             if (User.Identity.IsAuthenticated == false)
             {
                 // if the user is not authenticated, then just show logged out page
@@ -205,9 +205,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Logout(LogoutViewModel model)
         {
-            var item = CultureInfo.CurrentCulture;
-            var item2 = CultureInfo.CurrentUICulture;
-
             var idp = User?.FindFirst(JwtClaimTypes.IdentityProvider)?.Value;
             var subjectId = HttpContext.User.Identity.GetSubjectId();
 
@@ -247,10 +244,10 @@ namespace IdentityServerWithAspNetIdentity.Controllers
                 ClientName = logout?.ClientId,
                 SignOutIframeUrl = logout?.SignOutIFrameUrl
             };
-
-            await _persistedGrantService.RemoveAllGrantsAsync(subjectId, "angular2client");
-
-            return View("LoggedOut", vm);
+            _clientSelector.SelectedClient = logout?.ClientId;
+            await _persistedGrantService.RemoveAllGrantsAsync(subjectId, logout?.ClientId);
+            return View($"~/Themes/{logout?.ClientId}/Account/LoggedOut.cshtml", vm);
+            //return View("LoggedOut", vm);
         }
 
         //
