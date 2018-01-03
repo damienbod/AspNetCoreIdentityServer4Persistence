@@ -17,14 +17,14 @@
         <header class="mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <!-- Title -->
-                <span class="mdl-layout-title">Layout ClientTwo:  @_clientSelector.SelectedClient</span>
+                <span class="mdl-layout-title">STS: @_clientSelector.SelectedClient</span>
                 <!-- Add spacer, to align navigation to the right -->
                 <div class="mdl-layout-spacer"></div>
                 <!-- Navigation. We hide it in small screens. -->
                 <nav class="mdl-navigation mdl-layout--large-screen-only">
-                    <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("home")</a>
+                    @*<a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("home")</a>
                     <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("about")</a>
-                    <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a>
+                    <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a>*@
 
                     @await Html.PartialAsync("_LoginPartial")
                 </nav>
