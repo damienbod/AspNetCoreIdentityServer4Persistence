@@ -12,10 +12,7 @@
 
 <br /><br /><br /><br />
 
-<div>
-    <div class="mdl-cell mdl-cell--6-col">
-        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-            <section>
+<section>
                 <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" method="post" class="form-horizontal">
                     <h4>@_clientSelector.SelectedClient @CultureInfo.CurrentCulture</h4>
                     <hr />
@@ -48,10 +45,6 @@
                     </p>
                 </form>
             </section>
-        </div>
-    </div>
-</div>
-
 
 @section Scripts {
     @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
