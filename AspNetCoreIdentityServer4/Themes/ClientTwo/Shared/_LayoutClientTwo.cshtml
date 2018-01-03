@@ -26,7 +26,7 @@
                     <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("about")</a>
                     <a class="mdl-navigation__link" asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a>*@
 
-                    @await Html.PartialAsync("_LoginPartial")
+                    @await Html.PartialAsync("~/Themes/ClientTwo/Shared/_LoginPartial.cshtml")
                 </nav>
             </div>
         </header>
