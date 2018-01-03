@@ -10,11 +10,9 @@
     ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("login");
 }
 
-<h2>_</h2>
-<br />
+<br /><br /><br /><br />
 
-
-<div class="mdl-grid">
+<div>
     <div class="mdl-cell mdl-cell--6-col">
         <div class="demo-card-wide mdl-card mdl-shadow--2dp">
             <section>
@@ -23,13 +21,13 @@
                     <hr />
                     <div asp-validation-summary="All" class="text-danger"></div>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input asp-for="Email" class="mdl-textfield__input" type="text" id="sample1">
-                        <label class="mdl-textfield__label" for="sample1">@SharedLocalizer.GetLocalizedHtmlString("email")</label>
+                        <input asp-for="Email" class="mdl-textfield__input" type="text" >
+                        <label class="mdl-textfield__label" >@SharedLocalizer.GetLocalizedHtmlString("email")</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input asp-for="Password" class="mdl-textfield__input" type="password" id="sample1">
-                        <label class="mdl-textfield__label" for="sample1">@SharedLocalizer.GetLocalizedHtmlString("password")</label>
+                        <input asp-for="Password" class="mdl-textfield__input" type="password" >
+                        <label class="mdl-textfield__label" >@SharedLocalizer.GetLocalizedHtmlString("password")</label>
                     </div>
 
                     <div class="mdl-textfield mdl-js-textfield">
@@ -52,7 +50,6 @@
             </section>
         </div>
     </div>
-
 </div>
 
 

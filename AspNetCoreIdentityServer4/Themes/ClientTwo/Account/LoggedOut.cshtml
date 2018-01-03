@@ -1,21 +1,33 @@
 ﻿@model IdentityServer4.Quickstart.UI.Models.LoggedOutViewModel
 @inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
-Theme:  @_clientSelector.SelectedClient
 
-<div class="page-header">
-    <h1>
-        Logout
-        <small>You are now logged out</small>
-    </h1>
-    @if (Model.PostLogoutRedirectUri != null)
-    {
+<br /><br /><br /><br />
+
+<div>
+    <div>
         <div>
-            Click <a href="@Model.PostLogoutRedirectUri">here</a> to return to the
-            <span>@Model.ClientName</span> application.
+            <section>
+                <div class="mdl-layout__header-row">
+                    <h1>
+                        Logout
+                        <small>You are now logged out</small>
+                    </h1>
+                </div>
+                <div class="mdl-layout__header-row">
+
+                    @if (Model.PostLogoutRedirectUri != null)
+        {
+            <div>
+                Click <a class="mdl-button mdl-js-button mdl-button--accent" href="@Model.PostLogoutRedirectUri">here</a> to return to the
+                <span>@Model.ClientName</span> application.
+            </div>
+}
+                    @if (Model.SignOutIframeUrl != null)
+        {
+            <iframe style="display:none" width="0" height="0" class="signout" src="@Model.SignOutIframeUrl"></iframe>
+}
+                </div>
+            </section>
         </div>
-    }
-    @if (Model.SignOutIframeUrl != null)
-    {
-        <iframe style="display:none" width="0" height="0" class="signout" src="@Model.SignOutIframeUrl"></iframe>
-    }
+    </div>
 </div>
