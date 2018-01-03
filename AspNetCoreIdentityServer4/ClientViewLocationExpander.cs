@@ -32,12 +32,11 @@ public class ClientViewLocationExpander : IViewLocationExpander
 
     public IEnumerable<string> ExpandViewLocations(ViewLocationExpanderContext context, IEnumerable<string> viewLocations)
     {
-        if (context.ViewName == "_LayoutClientOne")
+        // add the themes to the view location if one of the theme layouts are required. 
+        if (context.ViewName.Contains("_Layout"))
         {
-            context.Values[THEME_KEY] = "ClientOne";
-        } else if (context.ViewName == "_LayoutClientTwo")
-        {
-            context.Values[THEME_KEY] = "ClientTwo";
+            string themeValue = context.ViewName.Replace("_Layout", "");
+            context.Values[THEME_KEY] = themeValue;
         }
 
         string theme = null;
