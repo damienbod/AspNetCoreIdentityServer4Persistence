@@ -38,9 +38,9 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("about")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Layout ClientOne:  @_clientSelector.SelectedClient</a></li>
-                    
+
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                @await Html.PartialAsync("~/Themes/ClientOne/Shared/_LoginPartial.cshtml")
             </div>
         </div>
     </div>
