@@ -1,0 +1,51 @@
+﻿@using System.Globalization
+@using IdentityServerWithAspNetIdentity.Resources
+@model IdentityServer4.Quickstart.UI.Models.LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@inject LocService SharedLocalizer
+
+@inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
+@{
+    ViewData["Title"] = @SharedLocalizer.GetLocalizedHtmlString("login");
+}
+
+<br /><br /><br /><br />
+
+<section>
+                <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                    <h4>@_clientSelector.SelectedClient @CultureInfo.CurrentCulture</h4>
+                    <hr />
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input asp-for="Email" class="mdl-textfield__input" type="text" >
+                        <label class="mdl-textfield__label" >@SharedLocalizer.GetLocalizedHtmlString("email")</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input asp-for="Password" class="mdl-textfield__input" type="password" >
+                        <label class="mdl-textfield__label" >@SharedLocalizer.GetLocalizedHtmlString("password")</label>
+                    </div>
+
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input type="checkbox" asp-for="RememberLogin" class="mdl-checkbox__input" checked>
+                        <span class="mdl-checkbox__label">@SharedLocalizer.GetLocalizedHtmlString("rememberMe")</span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-4 col-md-8">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">@SharedLocalizer.GetLocalizedHtmlString("login")</button>
+                        </div>
+                    </div>
+                    <p>
+                        <a class="mdl-button mdl-js-button mdl-button--accent" asp-action="Register" asp-route-returnurl="@Model.ReturnUrl">@SharedLocalizer.GetLocalizedHtmlString("registerAsNewUser")</a>
+                    </p>
+                    <p>
+                        <a class="mdl-button mdl-js-button mdl-button--accent" asp-action="ForgotPassword">@SharedLocalizer.GetLocalizedHtmlString("forgotYourPassword")</a>
+                    </p>
+                </form>
+            </section>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

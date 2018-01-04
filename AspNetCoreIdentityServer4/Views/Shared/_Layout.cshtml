@@ -1,14 +1,14 @@
 ﻿@using System.Globalization
 @using IdentityServerWithAspNetIdentity.Resources
 @inject LocService SharedLocalizer
+@inject IdentityServerWithIdentitySQLite.ClientSelector _clientSelector
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ID4</title>
-
+    <title>@ViewData["Title"] - ID4 Default</title>
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -30,13 +30,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ID4</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ID4 Default</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">@SharedLocalizer.GetLocalizedHtmlString("home")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">@SharedLocalizer.GetLocalizedHtmlString("about")</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">@SharedLocalizer.GetLocalizedHtmlString("contact")</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Layout Default:  @_clientSelector.SelectedClient</a></li>
+
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
             </div>
@@ -46,10 +48,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2017 - ID4</p>
+            <p>&copy; 2018 - ID4 Default</p>
         </footer>
     </div>
-
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -66,7 +67,6 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
     @RenderSection("scripts", required: false)
 </body>
 </html>

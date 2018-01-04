@@ -11,6 +11,7 @@ using IdentityServer4.Models;
 using IdentityServer4.Stores;
 using IdentityServer4.Quickstart.UI.Models;
 using IdentityServerWithAspNetIdentity.Filters;
+using IdentityServerWithIdentitySQLite;
 
 namespace IdentityServer4.Quickstart.UI.Controllers
 {
@@ -18,6 +19,7 @@ namespace IdentityServer4.Quickstart.UI.Controllers
     /// This controller implements the consent logic
     /// </summary>
     [SecurityHeaders]
+    [ServiceFilter(typeof(ClientIdFilter))]
     public class ConsentController : Controller
     {
         private readonly ILogger<ConsentController> _logger;

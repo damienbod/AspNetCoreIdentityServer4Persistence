@@ -1,0 +1,19 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using IdentityServerWithAspNetIdentity.Models
+@using System.Globalization
+@using IdentityServerWithAspNetIdentity.Resources
+@inject LocService SharedLocalizer
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a class="mdl-button mdl-js-button mdl-button--accent" asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+    <button type="submit" class="mdl-button mdl-js-button mdl-button--accent">Log off</button>
+}
+else
+{
+    <a class="mdl-button mdl-js-button mdl-button--accent" asp-area="" asp-controller="Account" asp-action="Register">@SharedLocalizer.GetLocalizedHtmlString("register")</a>
+    <a class="mdl-button mdl-js-button mdl-button--accent" asp-area="" asp-controller="Account" asp-action="Login">@SharedLocalizer.GetLocalizedHtmlString("login")</a>
+}

@@ -236,7 +236,7 @@
     <value>Log  in</value>
   </data>
   <data name="registerAsNewUser" xml:space="preserve">
-    <value>Als neuer Benutzer/in registrieren?</value>
+    <value>Register as new user</value>
   </data>
   <data name="registerUserError" xml:space="preserve">
     <value>Fehler beim Registrieren einer Benutzerin/eines Benutzers</value>
